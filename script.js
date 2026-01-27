@@ -42,9 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Simple Scroll Reveal Animation
+  // Scroll Reveal Animation
   const observerOptions = {
     threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -57,12 +58,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, observerOptions);
 
-  // Apply animation to sections
-  const sections = document.querySelectorAll("section");
-  sections.forEach((section) => {
-    section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all 0.8s ease-out";
-    observer.observe(section);
+  // Elements to animate
+  const animateElements = document.querySelectorAll(".section-header, .service-card, .portfolio-item, .about-text, .contact-wrapper");
+
+  animateElements.forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "all 0.6s ease-out";
+
+    // Staggered delay for grid items
+    if (el.classList.contains("service-card") || el.classList.contains("portfolio-item")) {
+        const parent = el.parentElement;
+        const index = Array.from(parent.children).indexOf(el);
+        el.style.transitionDelay = `${index * 0.15}s`;
+    }
+
+    observer.observe(el);
   });
 });
