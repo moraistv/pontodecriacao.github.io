@@ -114,8 +114,9 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     padding: 20px 0;
-    background: rgba(15, 15, 18, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 15, 18, 0.6);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
     transition: var(--transition);
 }
@@ -167,6 +168,8 @@ h1, h2, h3 {
     position: relative;
     padding-top: 80px;
     overflow: hidden;
+    background: radial-gradient(circle at top right, rgba(108, 92, 231, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(0, 206, 201, 0.1), transparent 40%);
 }
 
 .hero-content {
@@ -252,7 +255,8 @@ h1, h2, h3 {
 }
 
 .service-card {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -402,7 +406,8 @@ h1, h2, h3 {
 }
 
 .contact-form {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -433,11 +438,51 @@ h1, h2, h3 {
 
 /* Footer */
 footer {
-    padding: 30px 0;
+    padding: 60px 0 20px;
+    background: #0a0a0c;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
+    text-align: left;
     color: var(--text-secondary);
     font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.footer-column h4 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--accent-primary);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Responsive Design */
@@ -449,6 +494,11 @@ footer {
     .contact-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 }
 
