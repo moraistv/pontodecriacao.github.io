@@ -228,7 +228,8 @@ h1, h2, h3 {
     width: 90%;
     max-width: 360px;
     height: 100vh;
-    background: #131316;
+    background: var(--bg-color);
+    border-right: 1px solid var(--header-border);
     z-index: 1050;
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -247,9 +248,10 @@ h1, h2, h3 {
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--header-border);
     height: 68px;
     flex-shrink: 0;
+    background: var(--bg-color);
 }
 
 .sidebar-header-left {
@@ -261,7 +263,7 @@ h1, h2, h3 {
 .sidebar-close {
     font-size: 1.4rem;
     cursor: pointer;
-    color: #ffffff;
+    color: var(--text-primary);
     padding: 5px;
     border-radius: 8px;
     transition: var(--transition);
@@ -270,20 +272,22 @@ h1, h2, h3 {
 }
 
 .sidebar-close:hover {
-    background: rgba(230, 45, 35, 0.15);
+    background: rgba(230, 45, 35, 0.1);
+    color: var(--accent-primary);
 }
 
-/* Theme button specifically inside sidebar - white text/border */
+/* Theme button inside sidebar - adapts to current theme */
 .sidebar-theme-btn {
-    background: rgba(255,255,255,0.08) !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    color: #ffffff !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--header-border) !important;
+    color: var(--text-primary) !important;
     flex-shrink: 0;
 }
 
 .sidebar-theme-btn:hover {
     background: var(--accent-primary) !important;
     border-color: var(--accent-primary) !important;
+    color: #ffffff !important;
 }
 
 
@@ -293,12 +297,13 @@ h1, h2, h3 {
     padding-top: 8px;
     flex: 1;
     overflow-y: auto;
+    background: var(--bg-color);
 }
 
 .sidebar-links a {
     padding: 20px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    color: #cccccc;
+    border-bottom: 1px solid var(--header-border);
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 1rem;
     display: flex;
@@ -314,7 +319,7 @@ h1, h2, h3 {
 }
 
 .sidebar-links a:hover {
-    color: #ffffff;
+    color: var(--accent-primary);
 }
 
 .sidebar-links a::after {
@@ -322,7 +327,8 @@ h1, h2, h3 {
     font-family: 'Font Awesome 6 Free';
     font-size: 0.7rem;
     font-weight: 900;
-    opacity: 0.3;
+    opacity: 0.25;
+    color: var(--text-secondary);
 }
 
 
