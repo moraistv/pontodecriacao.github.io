@@ -8,14 +8,17 @@
       name="description"
       content="Transformamos ideias em experiências digitais memoráveis. Web Design, Branding e Marketing Digital."
     />
+    <link rel="icon" type="image/svg+xml" href="LOGO/icone.svg" />
+    <link rel="shortcut icon" href="LOGO/icone.svg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -28,41 +31,91 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="container">
-        <a href="#" class="logo"
-          >Ponto de<span class="highlight">Criação</span>.</a
-        >
-        <div class="nav-links" id="navLinks">
-          <a href="#home" class="active">Início</a>
-          <a href="#services">Serviços</a>
-          <a href="#portfolio">Portfólio</a>
-          <a href="#about">Sobre</a>
-          <a href="#contact" class="btn-primary">Contato</a>
+
+        <!-- Mobile: [☰ + Logo] | Desktop: just Logo on left -->
+        <div class="nav-left">
+          <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="logo-container" id="logo-container">
+            <a href="#home">
+              <img src="LOGO/logo.svg" alt="Ponto de Criação" class="logo-img theme-light-only" id="logo-light">
+              <img src="LOGO/logoescuro.svg" alt="Ponto de Criação" class="logo-img theme-dark-only" id="logo-dark">
+            </a>
+          </div>
         </div>
-        <div class="hamburger" id="hamburger">
-          <i class="fas fa-bars"></i>
+
+        <!-- Desktop right: nav links + theme toggle -->
+        <div class="nav-right">
+          <div class="nav-links-desktop">
+            <a href="#home" class="active">Início</a>
+            <a href="#services">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#about">Sobre</a>
+            <a href="#contact">Contato</a>
+          </div>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun theme-dark-only" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon theme-light-only" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+          </button>
         </div>
+
       </div>
     </nav>
+
+    <!-- Mobile Sidebar (slides from left) -->
+    <div class="sidebar" id="sidebar">
+      <!-- Sidebar header: [☰ Logo] on left | [Theme Toggle] on right -->
+      <div class="sidebar-header">
+        <div class="sidebar-header-left">
+          <div class="sidebar-close" id="sidebarClose">
+            <i class="fas fa-bars"></i>
+          </div>
+          <!-- Sidebar is always dark, always use white logo -->
+          <a href="#home" onclick="document.getElementById('sidebarClose').click()">
+            <img src="LOGO/logoescuro.svg" alt="Ponto de Criação" class="logo-img">
+          </a>
+        </div>
+        <button id="theme-toggle-mobile" class="theme-toggle sidebar-theme-btn" aria-label="Alternar tema">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun theme-dark-only" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon theme-light-only" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        </button>
+      </div>
+
+      <!-- Sidebar nav links -->
+      <nav class="sidebar-links">
+        <a href="#home" class="active">Início</a>
+        <a href="#services">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#about">Sobre</a>
+        <a href="#contact">Contato</a>
+      </nav>
+    </div>
+
+    <!-- Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container hero-content">
-        <span class="badge">Inovação Digital</span>
+        <span class="hero-subtitle">Inovação Digital</span>
         <h1>
-          Transformamos Ideias em
-          <span class="gradient-text">Experiências Digitais</span>
+          Transformamos <br />
+          Ideias em <br />
+          <span class="gradient-text">Experiências <br /> Digitais</span>
         </h1>
         <p>
-          Somos um estúdio criativo focado em design de alta performance,
-          branding estratégico e soluções web que impulsionam o seu negócio.
+          Somos um estúdio criativo focado em design de alta performance, branding estratégico e soluções web que impulsionam o seu negócio.
         </p>
         <div class="hero-btns">
           <a href="#contact" class="btn-primary"
             >Iniciar Projeto <i class="fas fa-arrow-right"></i
           ></a>
-          <a href="#portfolio" class="btn-secondary">Ver Trabalhos</a>
         </div>
       </div>
       <div class="hero-bg-elements">
@@ -71,10 +124,13 @@
       </div>
     </section>
 
+
     <!-- About Section -->
-    <section id="about" class="about" style="padding: 100px 0; background-color: #131316;">
+    <section id="about" class="about">
+
         <div class="container">
-            <div class="contact-wrapper" style="align-items: center;">
+            <div class="contact-wrapper">
+
                 <div class="about-text">
                     <span class="badge">Sobre Nós</span>
                     <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Criatividade que Gera Resultados</h2>
@@ -99,10 +155,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image" style="position: relative;">
-                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #2d3436, #000); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-layer-group" style="font-size: 5rem; color: rgba(255,255,255,0.05);"></i>
+                <div class="about-image">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-layer-group"></i>
                     </div>
+
                     <div class="blob blob-2" style="width: 200px; height: 200px; right: -20px; bottom: -20px; z-index: -1;"></div>
                 </div>
             </div>
@@ -113,89 +170,81 @@
     <section id="services" class="services">
       <div class="container">
         <div class="section-header">
-          <h2>Nossas Soluções</h2>
-          <p>O que fazemos de melhor para o seu crescimento.</p>
+          <span class="badge">Nossas Soluções</span>
+          <h2>Criatividade de Alta Performance</h2>
+          <p>Potencializamos marcas através de design estratégico e tecnologia de ponta.</p>
         </div>
         <div class="services-grid">
           <div class="service-card">
             <div class="icon-box">
-              <i class="fas fa-laptop-code"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-template"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 9H3"/><path d="M9 21V9"/></svg>
             </div>
-            <h3>Web Design & Dev</h3>
-            <p>
-              Sites modernos, rápidos e responsivos que convertem visitantes em
-              clientes fiéis.
-            </p>
+            <div>
+              <h3>Web Design & Dev</h3>
+              <p>Sites que não apenas parecem bons, mas performam como máquinas de conversão, otimizados para velocidade e SEO.</p>
+            </div>
           </div>
           <div class="service-card">
             <div class="icon-box">
-              <i class="fas fa-paint-brush"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="m13 2-2 10h3L12 22l2-10h-3l2-10z"/></svg>
             </div>
-            <h3>Branding & ID</h3>
-            <p>
-              Criação de marcas fortes e identidades visuais que contam a
-              história da sua empresa.
-            </p>
+            <div>
+              <h3>Branding & ID</h3>
+              <p>Criação de marcas com alma, desde o logo até o guia completo de identidade visual para o seu negócio.</p>
+            </div>
           </div>
           <div class="service-card">
             <div class="icon-box">
-              <i class="fas fa-bullhorn"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><path d="M17 6h6v6"/></svg>
             </div>
-            <h3>Marketing Digital</h3>
-            <p>
-              Estratégias de tráfego e conteúdo para posicionar sua marca no
-              topo do mercado.
-            </p>
+            <div>
+              <h3>Marketing Digital</h3>
+              <p>Estratégias de tráfego pago e conteúdo que colocam sua marca na frente do público certo no momento ideal.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="section-header">
-          <h2>Projetos Recentes</h2>
-          <p>Um pouco do nosso trabalho criativo.</p>
+          <span class="badge">Cases de Sucesso</span>
+          <h2>Trabalhos Recentes</h2>
+          <p>Uma vitrine das nossas criações digitais mais impactantes.</p>
         </div>
         <div class="portfolio-grid">
-          <!-- Placeholder items - In a real scenario, these would be images -->
           <div class="portfolio-item">
-            <div
-              class="portfolio-image"
-              style="background: linear-gradient(45deg, #2d3436, #636e72)"
-            >
+            <div class="portfolio-image" id="portfolio-1" style="background-image: url('assets/portfolio1.png')">
               <div class="overlay">
                 <h3>E-commerce Tech</h3>
-                <p>Desenvolvimento Web</p>
+                <p>Desenvolvimento Full-Stack</p>
               </div>
             </div>
           </div>
           <div class="portfolio-item">
-            <div
-              class="portfolio-image"
-              style="background: linear-gradient(45deg, #6c5ce7, #a29bfe)"
-            >
+            <div class="portfolio-image" id="portfolio-2" style="background-image: url('assets/portfolio2.png')">
               <div class="overlay">
                 <h3>App Financeiro</h3>
-                <p>UI/UX Design</p>
+                <p>UI/UX Design & App</p>
               </div>
             </div>
           </div>
           <div class="portfolio-item">
-            <div
-              class="portfolio-image"
-              style="background: linear-gradient(45deg, #00cec9, #81ecec)"
-            >
+            <div class="portfolio-image" id="portfolio-3" style="background-image: url('assets/portfolio3.png')">
               <div class="overlay">
-                <h3>Rebranding Café</h3>
+                <h3>Branding Premium</h3>
                 <p>Identidade Visual</p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -237,11 +286,60 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="footer-content">
-          <p>&copy; 2025 Ponto de Criação. Todos os direitos reservados.</p>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Site principal</h4>
+            <ul>
+              <li><a href="#home">Início</a></li>
+              <li><a href="#about">Sobre nós</a></li>
+              <li><a href="#portfolio">Portfólio</a></li>
+              <li><a href="#services">Nossas Soluções</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Nossas Soluções</h4>
+            <ul>
+              <li><a href="#services">Web Design & Dev</a></li>
+              <li><a href="#services">Branding & ID</a></li>
+              <li><a href="#services">Marketing Digital</a></li>
+              <li><a href="#services">Consultoria Tech</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Redes sociais</h4>
+            <ul>
+              <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Jurídico</h4>
+            <ul>
+              <li><a href="#">Termos de uso</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+              <li><a href="#">Direitos Autorais</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Entre em contato</h4>
+            <ul>
+              <li><a href="mailto:contato@pontodecriacao.com.br">Consultas de mídia</a></li>
+              <li><a href="#contact">Consultas de vendas</a></li>
+              <li><a href="#contact">Suporte ao cliente</a></li>
+              <li><a href="#contact">Opinião sobre o site</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2012-2026 Ponto de Criação, uma empresa criativa. Todos os direitos reservados. Ponto de Criação&reg; está entre as marcas registradas e não pode ser usado por terceiros sem permissão expressa por escrito.</p>
         </div>
       </div>
     </footer>
+
 
     <script src="script.js"></script>
   </body>
